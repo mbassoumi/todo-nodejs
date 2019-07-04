@@ -3,8 +3,8 @@ var bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 dotenv.config();
 
-var todoController = require('./controllers/todoController');
 
+var routes = require('./routes/index');
 
 var app = express();
 
@@ -20,11 +20,10 @@ app.use(urlEncodedParser);
  */
 app.use(express.static(__dirname + '/public'));
 
-
+routes(app);
 /**
  * fire controllers
  */
-todoController(app);
 
 
 /**
